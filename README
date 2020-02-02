@@ -1,60 +1,56 @@
-Δημιουργήσαμε ένα user interface μέσα από το οποίο μπορεί κανείς να διαχειρίζεται μια βάση δεδομένων 
-με τους εξής πίνακες:
-> employees - περιέχει πληροφορίες όπως όνοματεπώνυμο, ημ. γέννησης, ημ. πρόσληψης και φύλλο
-> salaries - μισθός κάθε εργαζομένου για συγκεκριμένη χρονική περίοδο
-> dept_emp - τμήμα κάθε εργαζομένου για συγκεκριμένη χρονική περίοδο
-> dept_manager - τους διευθυντές κάθε τμήματος για συγκεκριμένη χρονική περίοδο
-> departments - τα υπάρχοντα τμήματα
-> titles - ο τίτλος κάθε εργαζομένου κάθε χρονική περίοδο
+We have created a user interface through which one can manage a database with the following tables:
+
+> employees - contains the employee's information such as full name, birthdate, hire date and gender.
+> salaries - the employee's salary for a certain period
+> dept_emp - the employee's department for a certain period
+> dept_manager - managers of each department for a certain period
+> departments - the existing departments 
+> titles - the title of each employee for a certain period
+
+The login window appears with the execution of the program and at the same time the connection
+to the database begins. According to the user's credentials on the database, the menu differs.
+
+The entire menu, which is visible only to the administrator consists of the following options:
+
+> Bonus Table with submenu: Create Table, 
+							Delete Table
+
+> Edit table with submenu:  New Employee
+							Remove Employee
+							New Department
+							New Department Manager
+							New Department Employee
+							Insert title for new employee
+							Insert salary for new employee
+
+> Views with submenu : 	Create Employees View
+						Create Bonus View
+						Employees View
+						Bonus View
 
 
-Με την εκκινηση του προγράμματος (main.java) εμφανίζεται παράθυρο για την σύνδεση με την βάση δεδομένων 
-( DBConnection.java , LoginWindow ).Εκεί , ανάλογα με τα δικαιώματα που έχει ο χρήστης στην βάση, έχει
- πρόσβαση σε διαφορετικό μενού.
-
-Το ολόκληρο μενού, που έχει πρόσβαση μόνο ο διαχειριστής, αποτελείται από:
-
-> Bonus Table με υπομενού: Create Table, 
-			 Delete Table
-
-> Edit table με υπομενού:  New Employee
-			 Remove Employee
-			 New Department
-			 New Department Manager
-			 New Department Employee
-			 Insert title for new employee
-			 Insert salary for new employee
-
-> Views με υπομενού : Create Employees View
-		              Create Bonus View
-		              Employees View
-		              Bonus View
-
-
-> Search με υπομενού : Employee's Birthday
-                       Salary Check
-	                   Department Manager
-	                   Employees on each department
-	                   Employee with title and manager position
-	                   Sum on this year's bonus
-	                   Count of female department managers
-	                   Female department managers
+> Search with submenu : Employee's Birthday
+						Salary Check
+						Department Manager
+						Employees on each department
+						Employee with title and manager position
+						Sum on this year's bonus
+						Count of female department managers
+						Female department managers
 
 > Exit button
 
-Όσον αφορά τον κώδικα, φτιάχτηκαν οι εξής κλάσεις:
-> για την δημιουργία του παραθύρου και την εισαγωγή μενού -> MvbView (τροποποιήθηκε από έτοιμη κλάση)
 
-> για την δημιουργία και διαγραφή νέου πίνακα -> BonusModel.java
-  και για την εμφάνισή του -> BonusController.java
-  Ο πίνακας που δημιουργήσαμε χρησιμοποιεί τους πίνακες employees και salary για να υπολογίσει ένα ετήσιο 
-  μπόνους που θα μοιραστεί στους υπαλλήλους της εταιρίας.
+Given the baseline code, we created the following classes:
 
-> για την εισαγωγή και διαγραφή δεδομένων σε/από πίνακες -> EditModel.java
-  για την εμφάνιση των αποτελεσμάτων -> EditController.java
+> create the frame and the menu bar : MvbView.java
 
-> για την κλήση δυναμικών και στατικών queries -> SearchModel.java
-  για την εμφάνιση των αποτελεσμάτων -> SearchController.java
-
-> για την δημιουργία και εμφάνιση των views -> ViewModel.java, ViewController.java
-
+> create and delete a new table : BonusModel.java , BonusController.java
+  The Bonus table uses the Employees and Salary tables to calculate an annual bonus
+  that the company will give to their employees.
+  
+> insert and delete data in/from tables : EditModel.java , EditController.java
+  
+> execute static and dynamic queries : SearchModel.java , SearchController.java
+  
+> create and project views : ViewModel.java, ViewController.java
